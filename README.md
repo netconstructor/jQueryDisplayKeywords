@@ -32,8 +32,7 @@ This plugin is for frontend-developers, if you think, you aren't, read below lin
 3. Set the element to display the keywords.
    ```displayElement:```
    Eg. ```'#keywords'```, 
-```'.class'```, 
-```'whatever element desired'```, etc.
+```'.class'```, etc.
 ```
 <html>
     <head>
