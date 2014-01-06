@@ -70,10 +70,6 @@ $(document).ready(function () {
 });
 ```
 
-******************************
-
-#Options explanation
-
 **displayElement**: (String)
 
 HTML element to display the keywords
