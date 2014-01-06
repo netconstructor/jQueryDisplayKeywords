@@ -59,8 +59,7 @@ $(document).ready(function () {
      $('#container').displayKeywords({
          displayElement: '#keywords'
          displayElementHeight: '160px',
-         maxFontSize: 3.5,
-         minFontSize: 1,
+         fontSizeFactor: 0.03,
          fontColors: [
              '#ff9900',
              '#ffffff',
