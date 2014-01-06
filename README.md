@@ -99,7 +99,7 @@ Default: ```0.03```
 **fontColors**: (Array)
 
 Font colors for random colors, put as many as you like. 
-Eg. ```'#ff9900'```, ```rgb(255, 153, 0)```, ```rgb(255, 153, 0, 0.5)```
+Eg. ```'#ff9900'```, ```rgb(255, 153, 0)```, ```rgba(255, 153, 0, 0.5)```
      
 Default: ```['#ff9900',
              '#ffffff',
