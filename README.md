@@ -29,8 +29,7 @@ This plugin is for frontend-developers, if you think, you aren't, read below lin
 2. Bind the plugin to the container to search in.
    Eg. ```'#container'```, ```'body'```, ```'ul'```, etc.
 
-3. Set the element to display the keywords.
-   ```displayElement:```
+3. Set the element to display the keywords. ```displayElement:```
  
    Eg. ```'#keywords'```, ```'.class'```, ```'#whatever'```, etc.
 
