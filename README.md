@@ -78,11 +78,18 @@ Eg. ```'#keywords'```, ```'.class'```, ```'whatever element desired'```, etc.
 Default: ```'#pagekeywords'```
 ******************************
 
-**displayElementHeight**: (String)
+**displayElementHeight**: (Integer)
 
 height & max-height of **displayElement**
 
-Default: ```'160px'```
+Default: ```160```
+******************************
+
+**displayElementHeightUnit**: (String)
+
+height & max-height unit of **displayElementHeight**
+
+Default: ```'px'```
 ******************************
 
 **fontSizeFactor**: (Float)
