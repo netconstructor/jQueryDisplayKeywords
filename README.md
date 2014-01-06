@@ -165,4 +165,4 @@ Default: ```['I',
 If set to true, only Words with a capital letter at the beginning are token.
 
 Default: ```true```
-******************************
+
