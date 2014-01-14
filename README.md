@@ -8,10 +8,14 @@
 **Version**:  1.1
 
 Updated or added
-         1. Debugged JS for FF's & IE's
-         2. The positioning of the keywords in the 'show'-div is now faster
-         3. All IE till 7.0 supported
-         4. Options added.
+
+1. Debugged JS for FF's & IE's
+
+2. The positioning of the keywords in the 'show'-div is now faster
+
+3. All IE till 7.0 supported
+
+4. Options added.
 
 #New options in Version 1.1
 ******************************
