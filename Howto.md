@@ -53,21 +53,21 @@ Live example on <http://pc-shooter.ch>
 #Options
 
 Set options like this:
-`
-$(document).ready(function () {
-     $('#container').displayKeywords({
-         displayElement: '#keywords'
-         displayElementHeight: '160px',
-         fontSizeFactor: 0.03,
-         fontColors: [
-             '#ff9900',
-             '#ffffff',
-             '#000000'
-         ],
-         //and so on, no comma after the last option
-     });
-});
-`
+
+    $(document).ready(function () {
+         $('#container').displayKeywords({
+             displayElement: '#keywords'
+             displayElementHeight: '160px',
+             fontSizeFactor: 0.03,
+             fontColors: [
+                 '#ff9900',
+                 '#ffffff',
+                 '#000000'
+             ],
+             //and so on, no comma after the last option
+         });
+    });
+
 
 **displayElement**: (String)
 
@@ -103,10 +103,12 @@ Default: `0.03`
 Font colors for random colors, put as many as you like. 
 Eg. `'#ff9900'`, `rgb(255, 153, 0)`, `rgba(255, 153, 0, 0.5)`
      
-Default: `['#ff9900',
-             '#ffffff',
-             '#000000',
-             '#cccccc']`
+Default:
+    ['#ff9900',
+     '#ffffff',
+     '#000000',
+     '#cccccc']
+
 ******************************
 
 **wordMinSize**: (Integer)
@@ -125,41 +127,44 @@ Default: `'Verdana, sans-serif'`
      
 Words are excluded
      
-Default: `['I',
-             'You',
-             'He',
-             'She',
-             'It',
-             'We',
-             'You',
-             'They',
-             'Me',
-             'You',
-             'Him',
-             'Her',
-             'It',
-             'Us',
-             'You',
-             'Them',
-             'My',
-             'Your',
-             'His',
-             'Her',
-             'Its',
-             'Our',
-             'Your',
-             'Their',
-             'This',
-             'That',
-             'These',
-             'Those',
-             'Mine',
-             'Yours',
-             'His',
-             'Hers',
-             'Ours',
-             'Yours',
-             'Theirs']`
+Default:
+
+    ['I',
+     'You',
+     'He',
+     'She',
+     'It',
+     'We',
+     'You',
+     'They',
+     'Me',
+     'You',
+     'Him',
+     'Her',
+     'It',
+     'Us',
+     'You',
+     'Them',
+     'My',
+     'Your',
+     'His',
+     'Her',
+     'Its',
+     'Our',
+     'Your',
+     'Their',
+     'This',
+     'That',
+     'These',
+     'Those',
+     'Mine',
+     'Yours',
+     'His',
+     'Hers',
+     'Ours',
+     'Yours',
+     'Theirs']
+
 ******************************
 
 **onlyCapitalWords**: (Boolean)
