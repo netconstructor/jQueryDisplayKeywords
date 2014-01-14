@@ -3,7 +3,66 @@
 **Author**:   Daniel Gasser
 **Date**:     2013-12-29
 **Version**:  1.0
+**Update**:   2014-01-14
 ******************************
+**Version**:  1.1
+
+Updated or added
+         1. Debugged JS for FF's & IE's
+         2. The positioning of the keywords in the 'show'-div is now faster
+         3. All IE till 7.0 supported
+         4. Options added.
+
+#New options in Version 1.1
+******************************
+
+**dataOrigin**: (String)
+Where the keywords are coming from:
+Possible choices
+    
+    - ```'DOM'```
+      takes the words from the HTML-DOM. See #Basic Usage
+    - ```'JSON'```
+      takes words from a Json-object:
+      
+      - **dataUrl**: (string)
+        The path to your php script/Json-file
+        Default: ```'js/jQueryDisplayKeywords/php/data.php'```
+      - **dataParams**: (array of js-objects)
+        The $_GET-params to pass to your php script/Json-file
+        Default: ```empty```
+    - ```'Object'```
+      The words are taken froma a js-object 
+      Defaut: ```dataObject: [
+                    {
+                        ExampleOne: 'Beautiful',
+                        ExampleTwo: 'Web-based',
+                        ExampleThree: 'user-interfaces',
+                        ExampleFour: 'with',
+                        ExampleFive: 'HTML5/JavaScript'
+                    },
+                    {
+                        ExampleOne: 'Maintenance',
+                        ExampleTwo: 'documentation',
+                        ExampleThree: 'instruction',
+                        ExampleFour: '',
+                        ExampleFive: ''
+                    },
+                    {
+                        ExampleOne: 'Maintenance',
+                        ExampleTwo: 'documentation',
+                        ExampleThree: 'help-files',
+                        ExampleFour: 'project-management',
+                        ExampleFive: ''
+                    }
+                ],```
+
+
+Default: ```'DOM'```
+******************************
+
+******************************************************************************************
+******************************************************************************************
 
 #Description
 
@@ -29,7 +88,7 @@ This plugin is for frontend-developers, if you think, you aren't, read below lin
 2. Bind the plugin to the container to search in.
    Eg. ```'#container'```, ```'body'```, ```'ul'```, etc.
 
-3. Set the element to display the keywords. ```displayElement:```
+3. Set the element to display the keywords from the DOM. ```displayElement:```
  
    Eg. ```'#keywords'```, ```'.class'```, ```'#whatever'```, etc.
 
