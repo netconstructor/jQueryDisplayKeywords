@@ -69,7 +69,7 @@ Set options like this:
     });
 
 
-###displayElement: (String)
+####displayElement: (String)
 
 HTML element to display the keywords
 Eg. `'#keywords'`, `'.class'`, `'whatever element desired'`, etc.
