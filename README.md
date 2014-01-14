@@ -1,7 +1,9 @@
 #Show Your Keywords on the page
 
 **Author**:   Daniel Gasser
+
 **Date**:     2013-12-29
+
 **Version**:  1.0
 
 ******************************
@@ -13,7 +15,7 @@ Updated or added
 
 1. Debugged JS for FF's & IE's
 
-2. The positioning of the keywords in the 'show'-div is now faster
+2. The positioning of the keywords in the **displayElement** -div is now faster
 
 3. All IE till 7.0 supported
 
@@ -50,38 +52,42 @@ Default: `empty`
 
 `'Object'`
 
-The words are taken froma a js-object 
+The words are taken from a js-object 
 
 Defaut: 
-`dataObject: [
-{
-    ExampleOne: 'Beautiful',
-    ExampleTwo: 'Web-based',
-    ExampleThree: 'user-interfaces',
-    ExampleFour: 'with',
-    ExampleFive: 'HTML5/JavaScript'
-},
-{
-    ExampleOne: 'Maintenance',
-    ExampleTwo: 'documentation',
-    ExampleThree: 'instruction',
-    ExampleFour: '',
-    ExampleFive: ''
-},
-{
-    ExampleOne: 'Maintenance',
-    ExampleTwo: 'documentation',
-    ExampleThree: 'help-files',
-    ExampleFour: 'project-management',
-    ExampleFive: ''
-}
-],`
+
+    dataObject: [
+        {
+            ExampleOne: 'Beautiful',
+            ExampleTwo: 'Web-based',
+            ExampleThree: 'user-interfaces',
+            ExampleFour: 'with',
+            ExampleFive: 'HTML5/JavaScript'
+        },
+        {
+            ExampleOne: 'Maintenance',
+            ExampleTwo: 'documentation',
+            ExampleThree: 'instruction',
+            ExampleFour: '',
+            ExampleFive: ''
+        },
+        {
+            ExampleOne: 'Maintenance',
+            ExampleTwo: 'documentation',
+            ExampleThree: 'help-files',
+            ExampleFour: 'project-management',
+            ExampleFive: ''
+        }
+    ],
 
 
 Default: `'DOM'`
 ******************************
 
 ******************************************************************************************
+
+*End of news of Release 1.1*
+
 ******************************************************************************************
 
 #Description
@@ -111,19 +117,21 @@ This plugin is for frontend-developers, if you think, you aren't, read below lin
  
    Eg. `'#keywords'`, `'.class'`, `'#whatever'`, etc.
 
-`<html>
-    <head>
-    ...
+
+    <html>
+        <head>
         <script type="text/javascript" src="../js/displayKeywords"></script>
-        $(document).ready(function () {
-            $('#container').displayKeywords({
-                displayElement: '#keywords'
+            $(document).ready(function () {
+                $('#container').displayKeywords({
+                    displayElement: '#keywords'
+                });
             });
-        });
-    </head>
-`
+        </head>
+        
+    
 That's it! At least, if the given elements exists and contain some words...
 
+NOTE: Don't add any css `position:` to your **displayElement**!!
 Live example on <http://pc-shooter.ch>
 & <http://www.daniel-gasser.com/>
 ******************************
@@ -131,21 +139,21 @@ Live example on <http://pc-shooter.ch>
 #Options
 
 Set options like this:
-`
-$(document).ready(function () {
-     $('#container').displayKeywords({
-         displayElement: '#keywords'
-         displayElementHeight: '160px',
-         fontSizeFactor: 0.03,
-         fontColors: [
-             '#ff9900',
-             '#ffffff',
-             '#000000'
-         ],
-         //and so on, no comma after the last option
-     });
-});
-`
+
+    $(document).ready(function () {
+         $('#container').displayKeywords({
+             displayElement: '#keywords'
+             displayElementHeight: '160px',
+             fontSizeFactor: 0.03,
+             fontColors: [
+                 '#ff9900',
+                 '#ffffff',
+                 '#000000'
+             ],
+             //and so on, no comma after the last option
+         });
+    });
+
 
 **displayElement**: (String)
 
@@ -181,10 +189,13 @@ Default: `0.03`
 Font colors for random colors, put as many as you like. 
 Eg. `'#ff9900'`, `rgb(255, 153, 0)`, `rgba(255, 153, 0, 0.5)`
     
-Default: `['#ff9900',
-             '#ffffff',
-             '#000000',
-             '#cccccc']`
+Default: 
+
+        ['#ff9900',
+        '#ffffff',
+        '#000000',
+        '#cccccc']
+    
 ******************************
 
 **wordMinSize**: (Integer)
@@ -203,41 +214,43 @@ Default: `'Verdana, sans-serif'`
      
 Words are excluded
     
-Default: `['I',
-             'You',
-             'He',
-             'She',
-             'It',
-             'We',
-             'You',
-             'They',
-             'Me',
-             'You',
-             'Him',
-             'Her',
-             'It',
-             'Us',
-             'You',
-             'Them',
-             'My',
-             'Your',
-             'His',
-             'Her',
-             'Its',
-             'Our',
-             'Your',
-             'Their',
-             'This',
-             'That',
-             'These',
-             'Those',
-             'Mine',
-             'Yours',
-             'His',
-             'Hers',
-             'Ours',
-             'Yours',
-             'Theirs']`
+Default: 
+
+    ['I',
+     'You',
+     'He',
+     'She',
+     'It',
+     'We',
+     'You',
+     'They',
+     'Me',
+     'You',
+     'Him',
+     'Her',
+     'It',
+     'Us',
+     'You',
+     'Them',
+     'My',
+     'Your',
+     'His',
+     'Her',
+     'Its',
+     'Our',
+     'Your',
+     'Their',
+     'This',
+     'That',
+     'These',
+     'Those',
+     'Mine',
+     'Yours',
+     'His',
+     'Hers',
+     'Ours',
+     'Yours',
+     'Theirs']`
 ******************************
 
 **onlyCapitalWords**: (Boolean)
