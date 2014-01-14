@@ -20,20 +20,33 @@ Updated or added
 Where the keywords are coming from:
 Possible choices
     
-    - ```'DOM'```
-      takes the words from the HTML-DOM. See #Basic Usage
-    - ```'JSON'```
-      takes words from a Json-object:
+```'DOM'```
+takes the words from the HTML-DOM. See #Basic Usage
+
+```'JSON'```
+takes words from a Json-object:
       
-      - **dataUrl**: (string)
-        The path to your php script/Json-file
-        Default: ```'js/jQueryDisplayKeywords/php/data.php'```
-      - **dataParams**: (array of js-objects)
-        The $_GET-params to pass to your php script/Json-file
-        Default: ```empty```
-    - ```'Object'```
-      The words are taken froma a js-object 
-      Defaut: ```dataObject: [
+         Options to set if ```'JSON'```
+
+         **dataUrl**: (string)
+
+         The path to your php script/Json-file
+
+         Default: ```'js/jQueryDisplayKeywords/php/data.php'```
+         ******************************
+
+         **dataParams**: (array of js-objects)
+
+         The $_GET-params to pass to your php script/Json-file
+
+         Default: ```empty```
+         ******************************
+
+```'Object'```
+
+The words are taken froma a js-object 
+
+Defaut: ```dataObject: [
                     {
                         ExampleOne: 'Beautiful',
                         ExampleTwo: 'Web-based',
