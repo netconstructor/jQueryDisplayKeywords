@@ -16,34 +16,34 @@ and displays them in another element in different sizes, colors and at different
 This plugin is for frontend-developers, if you think, you aren't, read below links.
 
 - Basic knowledge about jQuery selectors: <http://api.jquery.com/category/selectors/>
-  and the jQuery ```ready()``` method <http://api.jquery.com/ready/>
+  and the jQuery `ready()` method <http://api.jquery.com/ready/>
   
 - HTML elements
 ******************************
 
 #Basic Usage
 
-1. Link the Javascript file ```displayKeywords.js``` in the ```<head>``` section of your HTML-file
+1. Link the Javascript file `displayKeywords.js` in the `<head>` section of your HTML-file
 
 2. Bind the plugin to the container to search in.
-   Eg. ```'#container'```, ```'body'```, ```'ul'```, etc.
+   Eg. `'#container'`, `'body'`, `'ul'`, etc.
 
-3. Set the element to display the keywords. ```displayElement:```
+3. Set the element to display the keywords. `displayElement:`
  
-   Eg. ```'#keywords'```, ```'.class'```, ```'#whatever'```, etc.
+   Eg. `'#keywords'`, `'.class'`, `'#whatever'`, etc.
 
-```
-<html>
-    <head>
-    ...
-        <script type="text/javascript" src="../js/displayKeywords"></script>
-        $(document).ready(function () {
-            $('#container').displayKeywords({
-                displayElement: '#keywords'
+
+    <html>
+        <head>
+        ...
+            <script type="text/javascript" src="../js/displayKeywords"></script>
+            $(document).ready(function () {
+                $('#container').displayKeywords({
+                    displayElement: '#keywords'
+                });
             });
-        });
     </head>
-```
+
 That's it! At least, if the given elements exists and contain some words...
 
 Live example on <http://pc-shooter.ch>
@@ -53,7 +53,7 @@ Live example on <http://pc-shooter.ch>
 #Options
 
 Set options like this:
-```
+`
 $(document).ready(function () {
      $('#container').displayKeywords({
          displayElement: '#keywords'
@@ -67,65 +67,65 @@ $(document).ready(function () {
          //and so on, no comma after the last option
      });
 });
-```
+`
 
 **displayElement**: (String)
 
 HTML element to display the keywords
-Eg. ```'#keywords'```, ```'.class'```, ```'whatever element desired'```, etc.
+Eg. `'#keywords'`, `'.class'`, `'whatever element desired'`, etc.
 
-Default: ```'#pagekeywords'```
+Default: `'#pagekeywords'`
 ******************************
 
 **displayElementHeight**: (Integer)
 
 height & max-height of **displayElement**
 
-Default: ```160```
+Default: `160`
 ******************************
 
 **displayElementHeightUnit**: (String)
 
 height & max-height unit of **displayElementHeight**
 
-Default: ```'px'```
+Default: `'px'`
 ******************************
 
 **fontSizeFactor**: (Float)
 
-Used for ```Math.random()``` to calcuate the font size depending on the size of the **displayElement**
+Used for `Math.random()` to calcuate the font size depending on the size of the **displayElement**
 
-Default: ```0.03```
+Default: `0.03`
 ******************************
 
 **fontColors**: (Array)
 
 Font colors for random colors, put as many as you like. 
-Eg. ```'#ff9900'```, ```rgb(255, 153, 0)```, ```rgba(255, 153, 0, 0.5)```
+Eg. `'#ff9900'`, `rgb(255, 153, 0)`, `rgba(255, 153, 0, 0.5)`
      
-Default: ```['#ff9900',
+Default: `['#ff9900',
              '#ffffff',
              '#000000',
-             '#cccccc']```
+             '#cccccc']`
 ******************************
 
 **wordMinSize**: (Integer)
 
 The minimal size (letter count) of a word to be taken.
 
-Default: ```3```
+Default: `3`
 ******************************
 
 **fontFamily**: (String)
 
-Default: ```'Verdana, sans-serif'```
+Default: `'Verdana, sans-serif'`
 ******************************
 
 **filterWords**: (Array)
      
 Words are excluded
      
-Default: ```['I',
+Default: `['I',
              'You',
              'He',
              'She',
@@ -159,12 +159,12 @@ Default: ```['I',
              'Hers',
              'Ours',
              'Yours',
-             'Theirs']```
+             'Theirs']`
 ******************************
 
 **onlyCapitalWords**: (Boolean)
 
 If set to true, only Words with a capital letter at the beginning are token.
 
-Default: ```true```
+Default: `true`
 
