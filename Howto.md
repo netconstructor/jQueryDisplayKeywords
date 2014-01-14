@@ -47,7 +47,7 @@ This plugin is for frontend-developers, if you think, you aren't, read below lin
 That's it! At least, if the given elements exists and contain some words...
 
 Live example on <http://pc-shooter.ch>
-& <http://www.daniel-gasser.com/>
+
 ******************************
 
 #Options
@@ -172,4 +172,76 @@ Default:
 If set to true, only Words with a capital letter at the beginning are token.
 
 Default: `true`
+
+******************************************************************************************
+
+#New options in Version 1.0
+
+******************************************************************************************
+
+**dataOrigin**: (String)
+Where the keywords are coming from:
+Possible choices
+
+`'DOM'`
+takes the words from the HTML-DOM. See **Basic Usage**
+******************************
+
+`'JSON'`
+takes words from a JSON-object:
+
+  Options to set if `'JSON'` is set:
+
+**dataUrl**: (string)
+
+The path to your php script/Json-file
+
+Default: `'js/jQueryDisplayKeywords/php/data.php'`
+
+**dataParams**: (array of js-objects)
+
+The $_GET-params to pass to your php script/Json-file
+
+Default: `empty`
+******************************
+
+`'Object'`
+
+The words are taken from a js-object
+
+Defaut:
+
+    dataObject: [
+        {
+            ExampleOne: 'Beautiful',
+            ExampleTwo: 'Web-based',
+            ExampleThree: 'user-interfaces',
+            ExampleFour: 'with',
+            ExampleFive: 'HTML5/JavaScript'
+        },
+        {
+            ExampleOne: 'Maintenance',
+            ExampleTwo: 'documentation',
+            ExampleThree: 'instruction',
+            ExampleFour: '',
+            ExampleFive: ''
+        },
+        {
+            ExampleOne: 'Maintenance',
+            ExampleTwo: 'documentation',
+            ExampleThree: 'help-files',
+            ExampleFour: 'project-management',
+            ExampleFive: ''
+        }
+    ],
+
+
+Default: `'DOM'`
+******************************
+
+******************************************************************************************
+
+*End of Release 1.0*
+
+******************************************************************************************
 

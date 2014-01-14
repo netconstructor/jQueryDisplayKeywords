@@ -85,7 +85,7 @@ Default: `'DOM'`
 
 ******************************************************************************************
 
-*End of news of Release 1.1*
+*End of Release 1.1*
 
 ******************************************************************************************
  See <https://github.com/pcshooter/jQueryDisplayKeywords/blob/master/Howto.md> for instructions
