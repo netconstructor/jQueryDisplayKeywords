@@ -200,7 +200,9 @@ Where the keywords are coming from:
 Possible choices
 
 `'DOM'`
-takes the words from the HTML-DOM. See ####Basic Usage
+takes the words from the HTML-DOM. See
+####Basic Usage
+
 ____________________________________________________________________________________
 
 
