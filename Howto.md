@@ -44,7 +44,7 @@ ________________________________________________________________________________
             });
     </head>
 
-That's it! At least, if the given elements exists and contain some words...
+**That's it! At least, if the given elements exists and contain some words...**
 
 Live example on <http://pc-shooter.ch>
 
@@ -79,21 +79,21 @@ ________________________________________________________________________________
 
 ####displayElementHeight: (Integer)
 
-height & max-height of ####displayElement
+height & max-height of ***displayElement***
 
 Default: `160`
 ____________________________________________________________________________________
 
 ####displayElementHeightUnit: (String)
 
-height & max-height unit of ####displayElementHeight
+height & max-height unit of ***displayElementHeight***
 
 Default: `'px'`
 ____________________________________________________________________________________
 
 ####fontSizeFactor: (Float)
 
-Used for `Math.random()` to calcuate the font size depending on the size of ####thedisplayElement
+Used for `Math.random()` to calcuate the font size depending on the size of ***thedisplayElement***
 
 Default: `0.03`
 ____________________________________________________________________________________
@@ -200,7 +200,7 @@ Where the keywords are coming from:
 Possible choices
 
 `'DOM'`
-takes the words from the HTML-DOM. See ****Basic Usage****
+takes the words from the HTML-DOM. See ***Basic Usage***
 
 ____________________________________________________________________________________
 
