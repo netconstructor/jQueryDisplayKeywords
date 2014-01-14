@@ -1,6 +1,6 @@
 #Show Your Keywords on the page
 
-**Author**:   Daniel Gasser
+####Author:   Daniel Gasser
 
 ____________________________________________________________________________________
 
@@ -77,28 +77,28 @@ Eg. `'#keywords'`, `'.class'`, `'whatever element desired'`, etc.
 Default: `'#pagekeywords'`
 ____________________________________________________________________________________
 
-**displayElementHeight**: (Integer)
+####displayElementHeight: (Integer)
 
-height & max-height of **displayElement**
+height & max-height of ####displayElement
 
 Default: `160`
 ____________________________________________________________________________________
 
-**displayElementHeightUnit**: (String)
+####displayElementHeightUnit: (String)
 
-height & max-height unit of **displayElementHeight**
+height & max-height unit of ####displayElementHeight
 
 Default: `'px'`
 ____________________________________________________________________________________
 
-**fontSizeFactor**: (Float)
+####fontSizeFactor: (Float)
 
-Used for `Math.random()` to calcuate the font size depending on the size of the **displayElement**
+Used for `Math.random()` to calcuate the font size depending on the size of ####thedisplayElement
 
 Default: `0.03`
 ____________________________________________________________________________________
 
-**fontColors**: (Array)
+####fontColors: (Array)
 
 Font colors for random colors, put as many as you like. 
 Eg. `'#ff9900'`, `rgb(255, 153, 0)`, `rgba(255, 153, 0, 0.5)`
@@ -127,19 +127,19 @@ Default:
 
 ____________________________________________________________________________________
 
-**wordMinSize**: (Integer)
+####wordMinSize: (Integer)
 
 The minimal size (letter count) of a word to be taken.
 
 Default: `3`
 ____________________________________________________________________________________
 
-**fontFamily**: (String)
+####fontFamily: (String)
 
 Default: `'Verdana, sans-serif'`
 ____________________________________________________________________________________
 
-**filterWords**: (Array)
+####filterWords: (Array)
      
 Words are excluded
      
@@ -183,7 +183,7 @@ Default:
 
 ____________________________________________________________________________________
 
-**onlyCapitalWords**: (Boolean)
+####onlyCapitalWords: (Boolean)
 
 If set to true, only Words with a capital letter at the beginning are token.
 
@@ -195,12 +195,12 @@ ________________________________________________________________________________
 ____________________________________________________________________________________
 
 
-**dataOrigin**: (String)
+####dataOrigin: (String)
 Where the keywords are coming from:
 Possible choices
 
 `'DOM'`
-takes the words from the HTML-DOM. See **Basic Usage**
+takes the words from the HTML-DOM. See ####Basic Usage
 ____________________________________________________________________________________
 
 
@@ -209,13 +209,13 @@ takes words from a JSON-object:
 
   Options to set if `'JSON'` is set:
 
-**dataUrl**: (string)
+####dataUrl: (string)
 
 The path to your php script/Json-file
 
 Default: `'js/jQueryDisplayKeywords/php/data.php'`
 
-**dataParams**: (array of js-objects)
+####dataParams: (array of js-objects)
 
 The $_GET-params to pass to your php script/Json-file
 
@@ -259,7 +259,7 @@ ________________________________________________________________________________
 
 ____________________________________________________________________________________
 
-*End of Release 1.0*
+#End of Release 1.0
 
 ____________________________________________________________________________________
 
