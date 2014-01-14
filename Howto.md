@@ -1,8 +1,7 @@
 #Show Your Keywords on the page
 
 **Author**:   Daniel Gasser
-**Date**:     2013-12-29
-**Version**:  0.1
+
 ******************************
 
 #Description

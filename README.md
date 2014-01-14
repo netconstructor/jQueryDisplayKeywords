@@ -88,3 +88,4 @@ Default: `'DOM'`
 *End of news of Release 1.1*
 
 ******************************************************************************************
+ See <Howto.md> for instructions
