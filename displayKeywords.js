@@ -38,82 +38,199 @@
                 wordMinSize: 3,
                 fontFamily: 'Verdana, sans-serif',
                 filterWords: [  'I',  'You',  'He',  'She',  'It',  'We',  'You',  'They',  'Me',  'You',  'Him',  'Her',  'It',  'Us',  'You',  'Them',  'My',  'Your',  'His',  'Her',  'Its',  'Our',  'Your',  'Their',  'This',  'That',  'These',  'Those',  'Mine',  'Yours',  'His',  'Hers',  'Ours',  'Yours',  'Theirs'],
-                onlyCapitalWords: true
+                onlyCapitalWords: true,
+                dataOrigin: 'DOM',
+                dataUrl: 'js/jQueryDisplayKeywords/php/data.php',
+                dataParams: [{}],
+                dataObject: [
+                    {
+                        ExampleOne: 'Beautiful',
+                        ExampleTwo: 'Web-based',
+                        ExampleThree: 'user-interfaces',
+                        ExampleFour: 'with',
+                        ExampleFive: 'HTML5/JavaScript'
+                    },
+                    {
+                        ExampleOne: 'Maintenance',
+                        ExampleTwo: 'documentation',
+                        ExampleThree: 'instruction',
+                        ExampleFour: '',
+                        ExampleFive: ''
+                    },
+                    {
+                        ExampleOne: 'Maintenance',
+                        ExampleTwo: 'documentation',
+                        ExampleThree: 'help-files',
+                        ExampleFour: 'project-management',
+                        ExampleFive: ''
+                    }
+                ],
+                displayDataObjectProperties: true
 
             }, options),
-            insideDivs = function (el, holder) {
-                var decreaseFs,
+            displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect(),
+            insideDivs = function (el) {
+                var i = 0,
+                    decreaseFs,
                     decreaseBt,
-                    keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect(),
-                    elObj = $(el);
-                while (keywordPos.left < holder.left || keywordPos.right > holder.right) {
-                    decreaseFs = parseInt(elObj.css('font-size'), 10) - 1;
-                    if (elObj.css('left') !== 'auto') {
-                        elObj.css({'left': '1em', 'font-size': decreaseFs + 'px'});
-                    } else {
-                        elObj.css({'right': '1em', 'font-size': decreaseFs + 'px'});
+                    decreasePos,
+                    keywordPos,
+                    elObj = $(el),
+                    elObjWidth,
+                    keywordPosRight;
+                keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect();
+                displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect();
+                while (
+                    (keywordPos.left < displayElementPos.left || keywordPos.right > displayElementPos.right) ||
+                        (keywordPos.left < 0 || keywordPos.right < 0) ||
+                        (keywordPos.bottom > displayElementPos.bottom)
+                ) {
+                    elObjWidth = parseInt(elObj.css('right').split('px')[0], 10);
+                    keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect();
+                    displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect();
+                    keywordPosRight = (keywordPos.right + document.getElementById(el.substring(1)).clientWidth);
+                    while (keywordPos.bottom > displayElementPos.bottom) {
+                        decreaseBt = parseInt(elObj.css('top'), 10) - (parseInt(elObj.css('top'), 10) * 0.05);
+                        elObj.css({'top': decreaseBt + 'px'});
+                        keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect();
+                        displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect();
+                        keywordPosRight = (keywordPos.right + document.getElementById(el.substring(1)).clientWidth);
                     }
+                    decreaseFs = parseInt(elObj.css('font-size'), 10) - (parseInt(elObj.css('font-size'), 10) * 0.1);
+                    decreaseBt = (Math.floor(Math.random() * (document.getElementById(settings.displayElement.substring(1)).clientHeight + 1))) / 60 + (Math.floor(Math.random() * (settings.displayElementHeight / 60 + 1)));
+                    decreasePos = (parseInt(elObj.css('left'), 10) <= 5) ? (Math.floor(Math.random() * 11)) : (parseInt(elObj.css('left'), 10) - (parseInt(elObj.css('left'), 10) * 0.2));
+                    elObj.css({'left': decreasePos + 'px',
+                        'font-size': decreaseFs + 'px',
+                        'width': 'auto'
+                        });
+                    i += 1;
                     keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect();
-                }
-                while (keywordPos.bottom > holder.bottom - (holder.bottom + 1.5)) {
-                    decreaseBt = parseInt(elObj.css('top'), 10) - 10;
-                    elObj.css({'top': decreaseBt + 'px'});
-                    keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect();
+                    displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect();
+                    keywordPosRight = (keywordPos.right + document.getElementById(el.substring(1)).clientWidth);
+                    elObjWidth = parseInt(elObj.css('right').split('px')[0], 10);
                 }
                 if (parseInt(elObj.css('top'), 10) <= 0) {
                     elObj.css({'top': '2px'});
                 }
-            };
-        return this.children().each(function (i, n) {
-            var t = [],
-                displayElementPos,
-                pattern = (settings.onlyCapitalWords) ? patternUppercase : patternLowercase;
+            },
+            displayWords = function (data) {
+                var pattern = (settings.onlyCapitalWords) ? patternUppercase : patternLowercase;
+                $.each(data, function (i, n) {
+                    var fc = settings.fontColors[(Math.floor(Math.random() * settings.fontColors.length))],
+                        nnn = n.replace(/[\.,-\/#!?$%\^&\*;:{}=\-_`~()]/g, ''),
+                        fs = (Math.floor(Math.random() * (settings.displayElementHeight * settings.fontSizeFactor + 1))),
+                        posTop = (Math.floor(Math.random() * (document.getElementById(settings.displayElement.substring(1)).clientHeight + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
+                        posLeft = (Math.floor(Math.random() * (document.getElementById(settings.displayElement.substring(1)).clientWidth + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
+                        floater = (i % 2 === 0) ? 'left' : 'right',
+                        cssObj = {},
+                        fontSize = (fs <= 0) ? 1 : fs;
+                    if (i % 2 === 0) {
+                        cssObj = {
+                            'font-size': fontSize + 'em',
+                            'float': floater,
+                            'position': 'absolute',
+                            'top': posTop + 'em',
+                            'left': posLeft + 'em',
+                            'color': fc
+                        };
+                    } else {
+                        cssObj = {
+                            'font-size': fontSize + 'em',
+                            'float': floater,
+                            'position': 'absolute',
+                            'top': posTop + 'em',
+                            'left': posLeft + 'em',
+                            'color': fc
+                        };
+                    }
+                    if (pattern.test(nnn.charAt(0)) && $.inArray(nnn, words) === -1 && nnn.length > settings.wordMinSize && $.inArray(nnn, settings.filterWords) === -1) {
+                        words.push(nnn);
+                        $('<div>')
+                            .attr('id', '_' + nnn)
+                            .css(cssObj)
+                            .html(nnn)
+                            .appendTo(settings.displayElement);
+                        $(settings.displayElement).css({'max-height': settings.displayElementHeight, 'height': settings.displayElementHeight});
+                        insideDivs('#_' + nnn);
+                    }
 
-            $(settings.displayElement).css('position', 'relative');
-            displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect();
-            if (n.firstChild !== null && n.firstChild.nodeType === 3 && n.innerText !== undefined) {
-                t = n.innerText.split(/\s/g);
-            }
-            $.each(t, function (i, n) {
-                var fc = settings.fontColors[(Math.floor(Math.random() * settings.fontColors.length))],
-                    nnn = n.replace(/[\.,-\/#!?$%\^&\*;:{}=\-_`~()]/g, ''),
-                    fs = (Math.floor(Math.random() * (settings.displayElementHeight * settings.fontSizeFactor + 1))),
-                    posTop = (Math.floor(Math.random() * (displayElementPos.top + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
-                    posLeft = (Math.floor(Math.random() * (displayElementPos.bottom + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
-                    floater = (i % 2 === 0) ? 'left' : 'right',
-                    cssObj = {},
-                    fontSize = (fs <= 0) ? 1 : fs;
-                if (i % 2 === 0) {
-                    cssObj = {
-                        'font-size': fontSize + 'em',
-                        'float': floater,
-                        'position': 'absolute',
-                        'top': posTop + 'em',
-                        'left': posLeft + 'em',
-                        'color': fc
-                    };
-                } else {
-                    cssObj = {
-                        'font-size': fontSize + 'em',
-                        'float': floater,
-                        'position': 'absolute',
-                        'top': posTop + 'em',
-                        'right': posLeft + 'em',
-                        'color': fc
-                    };
+                });
+                window.console.log(words);
+            },
+            displayObjectWords = function (data) {
+                var pattern = (settings.onlyCapitalWords) ? patternUppercase : patternLowercase;
+                $.each(data, function (i, n) {
+                    var fc = settings.fontColors[(Math.floor(Math.random() * settings.fontColors.length))],
+                        fs = (Math.floor(Math.random() * (settings.displayElementHeight * settings.fontSizeFactor + 1))),
+                        posTop = (Math.floor(Math.random() * (displayElementPos.top + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
+                        posLeft = (Math.floor(Math.random() * (displayElementPos.bottom + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
+                        floater = (i % 2 === 0) ? 'left' : 'right',
+                        cssObj = {},
+                        fontSize = (fs <= 0) ? 1 : fs;
+                    if (i % 2 === 0) {
+                        cssObj = {
+                            'font-size': fontSize + 'em',
+                            'float': floater,
+                            'position': 'absolute',
+                            'top': posTop + 'em',
+                            'left': posLeft + 'em',
+                            'color': fc
+                        };
+                    } else {
+                        cssObj = {
+                            'font-size': fontSize + 'em',
+                            'float': floater,
+                            'position': 'absolute',
+                            'top': posTop + 'em',
+                            'left': posLeft + 'em',
+                            'color': fc
+                        };
+                    }
+                    $.each(n, function (i, n) {
+                        var nn = n.replace(/[\.,-\/#!?$%\^&\*;:{}=\-_`~()]/g, '');
+                        if (pattern.test(nn.charAt(0)) && $.inArray(nn, words) === -1 && n.length > settings.wordMinSize && $.inArray(nn, settings.filterWords) === -1) {
+                            words.push(nn);
+                            $('<div>')
+                                .attr('id', '_' + nn)
+                                .css(cssObj)
+                                .html(nn)
+                                .appendTo(settings.displayElement);
+                            $(settings.displayElement).css({'max-height': settings.displayElementHeight, 'height': settings.displayElementHeight});
+                            insideDivs('#_' + nn);
+                        }
+                    });
+                });
+            };
+        if (settings.dataOrigin === 'DOM') {
+            return this.children().each(function (i, n) {
+                var t = [];
+
+                $(settings.displayElement).css('position', 'relative');
+                if (n.firstChild !== null && n.firstChild.nodeType === 3 && (n.textContent !== undefined || n.innerText !== undefined)) {
+                    if (n.innerText !== null || n.innerText !== undefined) {
+                        t = n.innerText.split(/\s/g);
+                    } else {
+                        t = n.textContent.split(/\s/g);
+                    }
                 }
-                if (pattern.test(nnn.charAt(0)) && $.inArray(nnn, words) === -1 && nnn.length > settings.wordMinSize && $.inArray(nnn, settings.filterWords) === -1) {
-                    words.push(nnn);
-                    $('<div>')
-                        .attr('id', '_' + nnn)
-                        .css(cssObj)
-                        .html(nnn)
-                        .appendTo(settings.displayElement);
-                    $(settings.displayElement).css({'max-height': settings.displayElementHeight, 'height': settings.displayElementHeight});
-                    insideDivs('#_' + nnn, displayElementPos);
+                displayWords(t);
+            });
+        }
+        if (settings.dataOrigin === 'JSON') {
+            $.ajax({
+                type: 'GET',
+                url: settings.dataUrl,
+                data: {
+                    params: settings.dataParams
+                },
+                success: function (data) {
+                    displayWords($.parseJSON(data));
                 }
 
             });
-        });
+        }
+        if (settings.dataOrigin === 'OBJECT') {
+            return displayObjectWords(settings.dataObject);
+        }
     };
 }(jQuery));
