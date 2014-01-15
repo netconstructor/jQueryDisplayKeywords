@@ -80,17 +80,29 @@
                     keywordPosRight;
                 keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect();
                 displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect();
+                window.console.log(elObj.selector + ' ' + keywordPos.top);
                 while (
                     (keywordPos.left < displayElementPos.left || keywordPos.right > displayElementPos.right) ||
                         (keywordPos.left < 0 || keywordPos.right < 0) ||
-                        (keywordPos.bottom > displayElementPos.bottom)
+                        (keywordPos.bottom > displayElementPos.bottom) ||
+                        (keywordPos.top < displayElementPos.top || keywordPos.top <= 0)
                 ) {
                     elObjWidth = parseInt(elObj.css('right').split('px')[0], 10);
                     keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect();
                     displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect();
                     keywordPosRight = (keywordPos.right + document.getElementById(el.substring(1)).clientWidth);
+                    window.console.log(elObj.selector + ' ' + displayElementPos.top);
+                    while (keywordPos.top < displayElementPos.top || keywordPos.top <= 0) {
+                        window.console.log(elObj.selector + ' ' + displayElementPos.top);
+                        window.console.log(keywordPos.top);
+                        decreaseBt = parseInt(elObj.css('height'), 10) + (parseInt(elObj.css('height'), 10) * 0.2);
+                        elObj.css({'top': decreaseBt + 'px'});
+                        keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect();
+                        displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect();
+                        keywordPosRight = (keywordPos.right + document.getElementById(el.substring(1)).clientWidth);
+                    }
                     while (keywordPos.bottom > displayElementPos.bottom) {
-                        decreaseBt = parseInt(elObj.css('top'), 10) - (parseInt(elObj.css('top'), 10) * 0.05);
+                        decreaseBt = parseInt(elObj.css('top'), 10) - (parseInt(elObj.css('top'), 10) * 0.1);
                         elObj.css({'top': decreaseBt + 'px'});
                         keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect();
                         displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect();
@@ -139,7 +151,14 @@
                         'left': posLeft + 'em',
                         'color': fc
                     };
-                    $(settings.displayElement).css({'max-height': settings.displayElementHeight, 'height': settings.displayElementHeight, 'position': 'relative'});
+                    $(settings.displayElement).css(
+                        {
+                            'max-height': settings.displayElementHeight,
+                            'height': settings.displayElementHeight,
+                            'position': 'relative',
+                            'width': '100%'
+                        }
+                    );
                     if (pattern.test(nnn.charAt(0)) && $.inArray(nnn, words) === -1 && nnn.length > settings.wordMinSize && $.inArray(nnn, settings.filterWords) === -1) {
                         words.push(nnn);
                         $('<div>')
@@ -177,7 +196,14 @@
                         'left': posLeft + 'em',
                         'color': fc
                     };
-                    $(settings.displayElement).css({'max-height': settings.displayElementHeight, 'height': settings.displayElementHeight, 'position': 'relative'});
+                    $(settings.displayElement).css(
+                        {
+                            'max-height': settings.displayElementHeight,
+                            'height': settings.displayElementHeight,
+                            'position': 'relative',
+                            'width': '100%'
+                        }
+                    );
                     $.each(n, function (i, n) {
                         var nn = n.replace(/[\.,-\/#!?$%\^&\*;:{}=\-_`~()]/g, '');
                         if (pattern.test(nn.charAt(0)) && $.inArray(nn, words) === -1 && n.length > settings.wordMinSize && $.inArray(nn, settings.filterWords) === -1) {
@@ -187,7 +213,6 @@
                                 .css(cssObj)
                                 .html(nn)
                                 .appendTo(settings.displayElement);
-                            $(settings.displayElement).css({'max-height': settings.displayElementHeight, 'height': settings.displayElementHeight});
                             insideDivs('#_' + nn);
                         }
                     });
