@@ -12,15 +12,14 @@
 
 **Updated or added**
 
+
 1. Debugged JS for FF's & IE's
-
 2. The positioning of the keywords in the **displayElement** -div is now faster
-
 3. All IE till 7.0 supported
-
 4. Options added.
 
-#New options in Version 1.1
+
+#New options in Version 1.0
 ******************************
 
 **dataOrigin**: (String)
@@ -85,7 +84,7 @@ Default: `'DOM'`
 
 ******************************************************************************************
 
-*End of Release 1.1*
+*End of Release 1.0*
 
 ******************************************************************************************
  See <https://github.com/pcshooter/jQueryDisplayKeywords/blob/master/Howto.md> for instructions

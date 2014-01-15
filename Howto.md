@@ -1,4 +1,4 @@
-#Show Your Keywords on the page
+#Show Your Keywords on the page - How To Use
 
 ####Author:   Daniel Gasser
 
@@ -33,16 +33,22 @@ ________________________________________________________________________________
    Eg. `'#keywords'`, `'.class'`, `'#whatever'`, etc.
 
 
-    <html>
-        <head>
-        ...
-            <script type="text/javascript" src="../js/displayKeywords"></script>
-            $(document).ready(function () {
-                $('#container').displayKeywords({
-                    displayElement: '#keywords'
+    `<html>`
+
+            <head>
+                ...
+                <script type="text/javascript" src="../js/displayKeywords.js"></script>
+                $(document).ready(function () {
+                    $('#container').displayKeywords({
+                        displayElement: '#keywords'
+                    });
                 });
-            });
-    </head>
+            </head>
+            <body>
+                ....
+            </body>
+
+    `</html>`
 
 **That's it! At least, if the given elements exists and contain some words...**
 
@@ -263,4 +269,3 @@ ________________________________________________________________________________
 #End of Release 1.0
 
 ____________________________________________________________________________________
-
