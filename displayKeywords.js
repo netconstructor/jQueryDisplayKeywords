@@ -7,6 +7,7 @@
  * Date:        2013-12-29
  * Version:     1.0
  *
+ * Updated:     2014-01-15
  * Description
  * ******************************
  * This jQuery (http://jquery.com) Plugin parses a given HTML-elements for words in the text
@@ -80,7 +81,6 @@
                     keywordPosRight;
                 keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect();
                 displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect();
-                window.console.log(elObj.selector + ' ' + keywordPos.top);
                 while (
                     (keywordPos.left < displayElementPos.left || keywordPos.right > displayElementPos.right) ||
                         (keywordPos.left < 0 || keywordPos.right < 0) ||
@@ -91,10 +91,7 @@
                     keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect();
                     displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect();
                     keywordPosRight = (keywordPos.right + document.getElementById(el.substring(1)).clientWidth);
-                    window.console.log(elObj.selector + ' ' + displayElementPos.top);
                     while (keywordPos.top < displayElementPos.top || keywordPos.top <= 0) {
-                        window.console.log(elObj.selector + ' ' + displayElementPos.top);
-                        window.console.log(keywordPos.top);
                         decreaseBt = parseInt(elObj.css('height'), 10) + (parseInt(elObj.css('height'), 10) * 0.2);
                         elObj.css({'top': decreaseBt + 'px'});
                         keywordPos = document.getElementById(el.substring(1)).getBoundingClientRect();
