@@ -8,6 +8,13 @@
 ******************************
 **Update**:   2014-01-14
 
+____________________________________________________________________________________
+
+#Description
+
+This jQuery (<http://jquery.com>) Plugin parses HTML-element(s), a JSON object or a JavaScript array/object for words
+and displays them in another element in different sizes, colors and at different positions.
+____________________________________________________________________________________
 
 
 **Updated or added**
