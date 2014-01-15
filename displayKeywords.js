@@ -126,7 +126,7 @@
                 var pattern = (settings.onlyCapitalWords) ? patternUppercase : patternLowercase;
                 $.each(data, function (i, n) {
                     var fc = settings.fontColors[(Math.floor(Math.random() * settings.fontColors.length))],
-                        nnn = n.replace(/[\.,-\/#!?$%\^&\*;:{}=\-_`~()]/g, ''),
+                        nnn = n.replace(/[\.,-\/#!?$+"&'%\^&\*;:{}=\-_`~()]/g, ''),
                         fs = (Math.floor(Math.random() * (settings.displayElementHeight * settings.fontSizeFactor + 1))),
                         posTop = (Math.floor(Math.random() * (document.getElementById(settings.displayElement.substring(1)).scrollHeight + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
                         posLeft = (Math.floor(Math.random() * (document.getElementById(settings.displayElement.substring(1)).scrollWidth + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),

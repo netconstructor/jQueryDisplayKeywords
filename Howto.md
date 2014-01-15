@@ -6,7 +6,7 @@ ________________________________________________________________________________
 
 #Description
 
-This jQuery (<http://jquery.com>) Plugin parses HTML-element(s), a JSON object or a JavaScript array/object for words in the text
+This jQuery (<http://jquery.com>) Plugin parses HTML-element(s), a JSON object or a JavaScript array/object for words
 and displays them in another element in different sizes, colors and at different positions.
 ____________________________________________________________________________________
 
