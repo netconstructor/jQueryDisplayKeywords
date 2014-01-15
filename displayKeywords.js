@@ -121,16 +121,24 @@
                         fs = (Math.floor(Math.random() * (settings.displayElementHeight * settings.fontSizeFactor + 1))),
                         posTop = (Math.floor(Math.random() * (document.getElementById(settings.displayElement.substring(1)).scrollHeight + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
                         posLeft = (Math.floor(Math.random() * (document.getElementById(settings.displayElement.substring(1)).scrollWidth + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
+                        cssObj = {},
                         floater = (i % 2 === 0) ? 'left' : 'right',
-                        fontSize = (fs <= 0) ? 1 : fs,
-                        cssObj = {
-                            'font-size': fontSize + 'em',
-                            'float': floater,
-                            'position': 'absolute',
-                            'top': posTop + 'em',
-                            'left': posLeft + 'em',
-                            'color': fc
-                        };
+                        fontSize = (fs <= 0) ? 1 : fs;
+                    cssObj = (i % 2 === 0) ? {
+                        'font-size': fontSize + 'em',
+                        'float': floater,
+                        'position': 'absolute',
+                        'top': posTop + 'em',
+                        'left': posLeft + 'em',
+                        'color': fc
+                    } : cssObj = {
+                        'font-size': fontSize + 'em',
+                        'float': floater,
+                        'position': 'absolute',
+                        'bottom': posTop + 'em',
+                        'left': posLeft + 'em',
+                        'color': fc
+                    };
                     $(settings.displayElement).css({'max-height': settings.displayElementHeight, 'height': settings.displayElementHeight, 'position': 'relative'});
                     if (pattern.test(nnn.charAt(0)) && $.inArray(nnn, words) === -1 && nnn.length > settings.wordMinSize && $.inArray(nnn, settings.filterWords) === -1) {
                         words.push(nnn);
@@ -154,11 +162,18 @@
                         floater = (i % 2 === 0) ? 'left' : 'right',
                         cssObj = {},
                         fontSize = (fs <= 0) ? 1 : fs;
-                    cssObj = {
+                    cssObj = (i % 2 === 0) ? {
                         'font-size': fontSize + 'em',
                         'float': floater,
                         'position': 'absolute',
                         'top': posTop + 'em',
+                        'left': posLeft + 'em',
+                        'color': fc
+                    } : cssObj = {
+                        'font-size': fontSize + 'em',
+                        'float': floater,
+                        'position': 'absolute',
+                        'bottom': posTop + 'em',
                         'left': posLeft + 'em',
                         'color': fc
                     };
