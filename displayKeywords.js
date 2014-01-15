@@ -119,12 +119,10 @@
                     var fc = settings.fontColors[(Math.floor(Math.random() * settings.fontColors.length))],
                         nnn = n.replace(/[\.,-\/#!?$%\^&\*;:{}=\-_`~()]/g, ''),
                         fs = (Math.floor(Math.random() * (settings.displayElementHeight * settings.fontSizeFactor + 1))),
-                        posTop = (Math.floor(Math.random() * (document.getElementById(settings.displayElement.substring(1)).clientHeight + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
-                        posLeft = (Math.floor(Math.random() * (document.getElementById(settings.displayElement.substring(1)).clientWidth + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
+                        posTop = (Math.floor(Math.random() * (document.getElementById(settings.displayElement.substring(1)).scrollHeight + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
+                        posLeft = (Math.floor(Math.random() * (document.getElementById(settings.displayElement.substring(1)).scrollWidth + 1))) / 100 + (Math.floor(Math.random() * (settings.displayElementHeight / 100 + 1))),
                         floater = (i % 2 === 0) ? 'left' : 'right',
-                        cssObj = {},
-                        fontSize = (fs <= 0) ? 1 : fs;
-                    if (i % 2 === 0) {
+                        fontSize = (fs <= 0) ? 1 : fs,
                         cssObj = {
                             'font-size': fontSize + 'em',
                             'float': floater,
@@ -133,16 +131,7 @@
                             'left': posLeft + 'em',
                             'color': fc
                         };
-                    } else {
-                        cssObj = {
-                            'font-size': fontSize + 'em',
-                            'float': floater,
-                            'position': 'absolute',
-                            'top': posTop + 'em',
-                            'left': posLeft + 'em',
-                            'color': fc
-                        };
-                    }
+                    $(settings.displayElement).css({'max-height': settings.displayElementHeight, 'height': settings.displayElementHeight, 'position': 'relative'});
                     if (pattern.test(nnn.charAt(0)) && $.inArray(nnn, words) === -1 && nnn.length > settings.wordMinSize && $.inArray(nnn, settings.filterWords) === -1) {
                         words.push(nnn);
                         $('<div>')
@@ -150,12 +139,10 @@
                             .css(cssObj)
                             .html(nnn)
                             .appendTo(settings.displayElement);
-                        $(settings.displayElement).css({'max-height': settings.displayElementHeight, 'height': settings.displayElementHeight});
                         insideDivs('#_' + nnn);
                     }
 
                 });
-                window.console.log(words);
             },
             displayObjectWords = function (data) {
                 var pattern = (settings.onlyCapitalWords) ? patternUppercase : patternLowercase;
@@ -167,25 +154,15 @@
                         floater = (i % 2 === 0) ? 'left' : 'right',
                         cssObj = {},
                         fontSize = (fs <= 0) ? 1 : fs;
-                    if (i % 2 === 0) {
-                        cssObj = {
-                            'font-size': fontSize + 'em',
-                            'float': floater,
-                            'position': 'absolute',
-                            'top': posTop + 'em',
-                            'left': posLeft + 'em',
-                            'color': fc
-                        };
-                    } else {
-                        cssObj = {
-                            'font-size': fontSize + 'em',
-                            'float': floater,
-                            'position': 'absolute',
-                            'top': posTop + 'em',
-                            'left': posLeft + 'em',
-                            'color': fc
-                        };
-                    }
+                    cssObj = {
+                        'font-size': fontSize + 'em',
+                        'float': floater,
+                        'position': 'absolute',
+                        'top': posTop + 'em',
+                        'left': posLeft + 'em',
+                        'color': fc
+                    };
+                    $(settings.displayElement).css({'max-height': settings.displayElementHeight, 'height': settings.displayElementHeight, 'position': 'relative'});
                     $.each(n, function (i, n) {
                         var nn = n.replace(/[\.,-\/#!?$%\^&\*;:{}=\-_`~()]/g, '');
                         if (pattern.test(nn.charAt(0)) && $.inArray(nn, words) === -1 && n.length > settings.wordMinSize && $.inArray(nn, settings.filterWords) === -1) {
@@ -207,10 +184,10 @@
 
                 $(settings.displayElement).css('position', 'relative');
                 if (n.firstChild !== null && n.firstChild.nodeType === 3 && (n.textContent !== undefined || n.innerText !== undefined)) {
-                    if (n.innerText !== null || n.innerText !== undefined) {
-                        t = n.innerText.split(/\s/g);
-                    } else {
+                    if (n.innerText === undefined || n.innerText === null) {
                         t = n.textContent.split(/\s/g);
+                    } else {
+                        t = n.innerText.split(/\s/g);
                     }
                 }
                 displayWords(t);
